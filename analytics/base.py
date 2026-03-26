@@ -1,5 +1,6 @@
 from abc import ABC , abstractmethod
 from dataclasses import dataclass, field
+from logging import exception
 from typing import Iterator
 from datetime import datetime
 
@@ -35,4 +36,33 @@ class BaseParser(ABC) :
 
         failed = 0 # counts of parse lines which are failed to parse
         total = 0  # total parse lines parsed.
+
+        with open(filepath , "r" , encoding="utf-8", errors="replace" ) as f:
+            for line in f :
+                line = line.rstrip("\n") # removing the \n from the right side of the parse line
+                if not line.strip():
+                    continue
+                total +=1
+                try:
+                    enrty = self.parse_line(line)
+                    if enrty is not None:
+                        yield enrty
+                except exception:
+                    failed +=1
+
+        if failed :
+            print(f"[parser] {failed}/{total} lines could not be parsed and were skipped.")
+
+    def parse_string(self ,  text : str) -> Iterator[LogEntry]:
+        for line in text.splitlines():
+            if not line.split():
+                continue
+            try:
+                entry = self.parse_line(line)
+                if entry is not None:
+                    yield entry
+            except exception:
+                pass
+
+
 
