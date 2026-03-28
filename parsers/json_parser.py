@@ -28,7 +28,24 @@ class JsonParser(BaseParser):
         if not isinstance(data , dict):
             return None
 
-    def _parse_timestamp(self , data) -> datetime | None:
+        timestamp = self._parse_timestamp(data)
+        level = self._parse_level(data)
+        message = data.get("message") or data.get("msg")
+        source = data.get("source") or data.get("service") or data.get("logger")
+        extra = {k : v for k, v in data.items() if k  not in KNOWN_FIELDS}
+
+        return LogEntry(
+            timestamp=timestamp,
+            level=level,
+            message=message,
+            source=source,
+            raw=line,
+            extra=extra,
+        )
+
+
+
+    def _parse_timestamp(self , data : dict ) -> datetime | None:
         raw_timestamp =  data.get("timestamp") or data.get("time") or data.get("ts")
         if not raw_timestamp:
             return None
@@ -38,10 +55,12 @@ class JsonParser(BaseParser):
             return None
 
 
-    def _parse_level(self , data :str) -> LogEntry | None:
+    def _parse_level(self , data :dict) -> str | None:
         raw_level = data.get("level") or data.get("lvl") or data.get("severity")
         if not raw_level :
             return None
-        try:
-            return LEVEL_MAP.get(str(raw_level).strip().lower() , str(raw_level).strip().upper())
+
+        return LEVEL_MAP.get(str(raw_level).strip().lower() , str(raw_level).strip().upper())
+
+
 
