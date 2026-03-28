@@ -44,8 +44,9 @@ class TestParseLineValidInput:
         assert  "service" not in entry.extra
 
 
-#class TestParseLineInvalidInput :
-
+class TestParseLineInvalidInput :
+    def test_blank_line_returns_None(self , parser):
+        assert parser.parse_line("") is None
 
 
 #class TestLevelNormalization :
