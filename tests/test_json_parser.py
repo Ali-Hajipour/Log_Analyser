@@ -71,6 +71,9 @@ class TestLevelNormalization :
         entry = parser.parse_line('{"level" : "warning" , "message" : "x"}')
         assert entry.level == "WARN"
 
+    def test_level_with_whitespace(self , parser):
+        entry =  parser.parse_line('{"level" : "    WARN    " , "message" : "x"}')
+        assert entry.level == "WARN"
 
 #class TestTimestampParsing :
 
