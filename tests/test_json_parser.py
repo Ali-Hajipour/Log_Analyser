@@ -45,8 +45,12 @@ class TestParseLineValidInput:
 
 
 class TestParseLineInvalidInput :
-    def test_blank_line_returns_None(self , parser):
+    def test_blank_line_returns_none(self , parser):
         assert parser.parse_line("") is None
+
+    def test_whitespace_line_returns_none (self, parser):
+        assert parser.parse_line("   ") is None
+
 
 
 #class TestLevelNormalization :
