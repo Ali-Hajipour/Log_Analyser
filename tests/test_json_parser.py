@@ -45,6 +45,7 @@ class TestParseLineValidInput:
 
 
 class TestParseLineInvalidInput :
+
     def test_blank_line_returns_none(self , parser):
         assert parser.parse_line("") is None
 
@@ -58,6 +59,8 @@ class TestParseLineInvalidInput :
     def test_json_list_returns_none(self, parser):
         assert parser.parse_line("[1,2,3,4,5]") is None
 
+    def test_json_string_returns_none (self , parser):
+        assert parser.parse_line('"ali hajipour"') is None
 
 #class TestLevelNormalization :
 
