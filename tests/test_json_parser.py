@@ -1,3 +1,5 @@
+from contextlib import nullcontext
+
 import pytest
 from datetime import datetime
 from parsers.json_parser import JSONParser
@@ -33,6 +35,13 @@ class TestParseLineValidInput:
         assert entry.extra["request_id"] == "ali32"
         assert entry.extra["env"] == "prod"
 
+    def test_known_fields_not_in_extra(self, parser):
+        line = '{"level": "INFO" , "message" : "Server Started" ,  "service" : "api"}'
+        entry = parser.parse_line(line)
+
+        assert "level" not in entry.extra
+        assert "message" not in entry.extra
+        assert  "service" not in entry.extra
 
 
 #class TestParseLineInvalidInput :
