@@ -62,7 +62,10 @@ class TestParseLineInvalidInput :
     def test_json_string_returns_none (self , parser):
         assert parser.parse_line('"ali hajipour"') is None
 
-#class TestLevelNormalization :
+class TestLevelNormalization :
+    def test_lowercase_error (self, parser):
+        entry = parser.parse_line('{"level" : "error" , "message" : "x"}')
+        assert entry.level == "ERROR"
 
 
 
