@@ -51,6 +51,9 @@ class TestParseLineInvalidInput :
     def test_whitespace_line_returns_none (self, parser):
         assert parser.parse_line("   ") is None
 
+    def test_invalid_json_raise_exception (self , parser):
+        with pytest.raises(Exception):
+            parser.parse_line("not valid json at all.")
 
 
 #class TestLevelNormalization :
