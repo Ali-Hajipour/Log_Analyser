@@ -10,16 +10,25 @@ def parser():
 
 class TestParseLineValidInput:
 
+    def test_valid_ful_log_line(self, parser):
+        line = '{"timestamp": "2024-01-15T10:23:45", "level": "ERROR", "message": "Disk full", "service": "api"}'
+        enrty = parser.parse_line(line)
 
-class TestParseLineInvalidInput :
+        assert enrty is not None
+        assert enrty.level == "ERROR"
+        assert enrty.message == "Disk full"
+        assert enrty.source == "api"
+        assert enrty.timestamp == datetime(2024, 1, 15, 10, 23, 45)
+
+#class TestParseLineInvalidInput :
 
 
 
-class TestLevelNormalization :
+#class TestLevelNormalization :
 
 
 
-class TestTimestampParsing :
+#class TestTimestampParsing :
 
 
-class TestParseString :
+#class TestParseString :
