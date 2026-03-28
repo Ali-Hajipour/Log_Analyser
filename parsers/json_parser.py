@@ -16,7 +16,7 @@ LEVEL_MAP = {
     "fatal" : "CRITICAL"
 }
 
-class JsonParser(BaseParser):
+class JSONParser(BaseParser):
     def parse_line(self , line : str) -> LogEntry | None:
         line = line.strip()
 
