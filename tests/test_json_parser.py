@@ -55,6 +55,9 @@ class TestParseLineInvalidInput :
         with pytest.raises(Exception):
             parser.parse_line("not valid json at all.")
 
+    def test_json_list_returns_none(self, parser):
+        assert parser.parse_line("[1,2,3,4,5]") is None
+
 
 #class TestLevelNormalization :
 
