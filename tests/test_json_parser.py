@@ -20,6 +20,13 @@ class TestParseLineValidInput:
         assert enrty.source == "api"
         assert enrty.timestamp == datetime(2024, 1, 15, 10, 23, 45)
 
+    def test_raw_preserved(self , parser):
+         line = '{"level": "INFO" , "message" : "Server Started"}'
+         entry =parser.parse_line(line)
+         assert entry.raw == line
+
+
+
 #class TestParseLineInvalidInput :
 
 
