@@ -67,6 +67,9 @@ class TestLevelNormalization :
         entry = parser.parse_line('{"level" : "error" , "message" : "x"}')
         assert entry.level == "ERROR"
 
+    def test_warning_maps_to_warn(self , parser):
+        entry = parser.parse_line('{"level" : "warning" , "message" : "x"}')
+        assert entry.level == "WARN"
 
 
 #class TestTimestampParsing :
