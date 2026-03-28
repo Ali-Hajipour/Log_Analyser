@@ -23,7 +23,15 @@ class TestParseLineValidInput:
     def test_raw_preserved(self , parser):
          line = '{"level": "INFO" , "message" : "Server Started"}'
          entry =parser.parse_line(line)
+
          assert entry.raw == line
+
+    def test_unknown_fields_in_extra(self, parser):
+        line = '{"timestamp": "2024-01-15T10:23:45", "level": "ERROR", "message": "Disk full", "service": "api" ,  "request_id" : "ali32" , "env" : "prod" }'
+        entry = parser.parse_line(line)
+
+        assert entry.extra["request_id"] == "ali32"
+        assert entry.extra["env"] == "prod"
 
 
 
