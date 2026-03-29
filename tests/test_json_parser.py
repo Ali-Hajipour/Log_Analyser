@@ -87,6 +87,10 @@ class TestLevelNormalization :
         entry = parser.parse_line('{"message" : "hello ali" , "severity" : "error"}')
         assert entry.level == "ERROR"
 
+    def test_lvl_field_map_level(self , parser):
+        entry = parser.parse_line('{"message" : "hello again ali" , "lvl" : "error"}')
+        assert entry.level == "ERROR"
+
 #class TestTimestampParsing :
 
 
