@@ -100,4 +100,8 @@ class TestTimestampParsing :
     def test_missing_timestamp_is_none(self, parser):
         entry = parser.parse_line('{"message" : "hi ali"}')
         assert entry.timestamp is None
+
+    def test_invalid_timestamp_is_none(self , parser):
+        entry = parser.parse_line('{"timestamp" : "today"}')
+        assert entry.timestamp is None
 #class TestParseString :
