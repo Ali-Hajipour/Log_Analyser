@@ -62,5 +62,3 @@ class JSONParser(BaseParser):
 
         return LEVEL_MAP.get(str(raw_level).strip().lower() , str(raw_level).strip().upper())
 
-
-

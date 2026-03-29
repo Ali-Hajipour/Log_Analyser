@@ -79,6 +79,10 @@ class TestLevelNormalization :
         entry = parser.parse_line('{"level": "verbose", "message": "x"}')
         assert entry.level == "VERBOSE"
 
+    def test_missing_level_is_none(self , parser):
+        entry = parser.parse_line('{"message" : "no level message"}')
+        assert entry.level is None
+
 #class TestTimestampParsing :
 
 
