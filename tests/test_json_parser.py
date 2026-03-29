@@ -108,4 +108,19 @@ class TestTimestampParsing :
     def test_ts_field_alias(self, parser):
         entry = parser.parse_line('{"time": "2026-03-29T10:23:45", "message": "hi ali"}')
         assert entry.timestamp == datetime(2026, 3, 29,10,23,45)
-#class TestParseString :
+
+class TestParseString :
+
+    def test_multiple_lines(self , parser):
+
+        text = """
+{"level": "INFO", "message": "Server started"}
+{"level": "ERROR", "message": "Disk full"}
+{"level": "WARN", "message": "High memory"}
+"""
+        entries = list(parser.parse_string(text))
+
+        assert len(entries) == 3
+        assert entries[0].level == "INFO"
+        assert entries[1].level == "ERROR"
+        assert entries[2].level == "WARN"
