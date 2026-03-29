@@ -136,3 +136,7 @@ class TestParseString :
 """
         entries = list(parser.parse_string(text))
         assert len(entries) == 2
+
+    def test_returns_logentry_instances(self, parser):
+        entries = list(parser.parse_string('{"level": "INFO", "message": "x"}'))
+        assert isinstance(entries[0], LogEntry)
