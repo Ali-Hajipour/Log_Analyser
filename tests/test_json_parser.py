@@ -91,7 +91,10 @@ class TestLevelNormalization :
         entry = parser.parse_line('{"message" : "hello again ali" , "lvl" : "error"}')
         assert entry.level == "ERROR"
 
-#class TestTimestampParsing :
+class TestTimestampParsing :
 
+    def test_valid_iso_timestamp(self , parser):
+        entry = parser.parse_line('{"time": "2026-03-29T10:23:45", "message": "x"}')
+        assert entry.timestamp == datetime(2026, 3, 29,10,23,45)
 
 #class TestParseString :
