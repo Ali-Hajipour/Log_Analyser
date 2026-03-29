@@ -28,7 +28,7 @@ class JSONParser(BaseParser):
         if not isinstance(data , dict):
             return None
 
-        if not any([data.get("message") , data.get("msg") ,  data.get("lvl") , data.get("level") , data.get("severity")])
+        if not any([data.get("message") , data.get("msg") ,  data.get("lvl") , data.get("level") , data.get("severity") ,  data.get("timestamp") , data.get("ts")]):
             return None
 
         timestamp = self._parse_timestamp(data)

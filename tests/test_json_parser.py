@@ -42,6 +42,8 @@ class TestParseLineValidInput:
         assert "level" not in entry.extra
         assert "message" not in entry.extra
         assert  "service" not in entry.extra
+    def test_empty_json_object_returns_none(self, parser):
+        assert parser.parse_line("{}") is None
 
 
 class TestParseLineInvalidInput :
