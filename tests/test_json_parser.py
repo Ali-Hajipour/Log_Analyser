@@ -75,6 +75,10 @@ class TestLevelNormalization :
         entry =  parser.parse_line('{"level" : "    WARN    " , "message" : "x"}')
         assert entry.level == "WARN"
 
+    def test_unknown_level_uppercased(self , parser):
+        entry = parser.parse_line('{"level": "verbose", "message": "x"}')
+        assert entry.level == "VERBOSE"
+
 #class TestTimestampParsing :
 
 
