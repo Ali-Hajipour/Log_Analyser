@@ -124,3 +124,13 @@ class TestParseString :
         assert entries[0].level == "INFO"
         assert entries[1].level == "ERROR"
         assert entries[2].level == "WARN"
+
+
+    def test_blank_lines_skipped(self , parser):
+        text = """
+{"level": "INFO", "message": "first"}
+ 
+{"level": "ERROR", "message": "second"}
+"""
+        entries = list(parser.parse_string(text))
+        assert len(entries) == 2
