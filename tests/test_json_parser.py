@@ -104,4 +104,8 @@ class TestTimestampParsing :
     def test_invalid_timestamp_is_none(self , parser):
         entry = parser.parse_line('{"timestamp" : "today"}')
         assert entry.timestamp is None
+
+    def test_ts_field_alias(self, parser):
+        entry = parser.parse_line('{"time": "2026-03-29T10:23:45", "message": "hi ali"}')
+        assert entry.timestamp == datetime(2026, 3, 29,10,23,45)
 #class TestParseString :
