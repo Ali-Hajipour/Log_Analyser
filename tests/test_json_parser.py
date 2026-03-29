@@ -97,4 +97,7 @@ class TestTimestampParsing :
         entry = parser.parse_line('{"time": "2026-03-29T10:23:45", "message": "x"}')
         assert entry.timestamp == datetime(2026, 3, 29,10,23,45)
 
+    def test_missing_timestamp_is_none(self, parser):
+        entry = parser.parse_line('{"message" : "hi ali"}')
+        assert entry.timestamp is None
 #class TestParseString :
