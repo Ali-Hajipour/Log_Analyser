@@ -38,7 +38,24 @@ class ApacheParser(BaseParser):
         status   = int(match.group(7))
         size = None if match.group(8) == "-" else int(match.group(8))
 
-        #return LogEntry
+        return LogEntry(
+            timestamp= self._parse_timestamp(raw_ts),
+            level = self._status_to_level(status),
+            message = f"{method} {path} {status}",
+            source= "apache",
+            raw= line,
+            extra={
+                "ip" : ip,
+                "user" : user,
+                "protocol" : protocol,
+                "size" : size,
+                "status" : status
+            }
+
+
+        )
+
+
 
     def _parse_timestamp(self, raw_ts : str)-> datetime | None:
         try :
