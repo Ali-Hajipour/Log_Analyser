@@ -40,7 +40,7 @@ class ApacheParser(BaseParser):
 
         #return LogEntry
 
-    def parse_timestamp(self, raw_ts : str)-> datetime | None:
+    def _parse_timestamp(self, raw_ts : str)-> datetime | None:
         try :
             return datetime.strptime(raw_ts.strip() , TIMESTAMP_FORMAT)
         except (ValueError , TypeError):
