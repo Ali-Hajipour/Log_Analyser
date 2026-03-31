@@ -27,3 +27,12 @@ class ApacheParser(BaseParser):
 
         if not match :
             return None
+
+        ip = match.group(1)
+        user = match.group(2)
+        raw_ts   = match.group(3)
+        method   = match.group(4)
+        path     = match.group(5)
+        protocol = match.group(6)
+        status   = int(match.group(7))
+        size = None if match.group(8) == "-" else int(match.group(8))
