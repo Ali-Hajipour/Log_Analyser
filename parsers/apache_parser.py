@@ -45,3 +45,11 @@ class ApacheParser(BaseParser):
             return datetime.strptime(raw_ts.strip() , TIMESTAMP_FORMAT)
         except (ValueError , TypeError):
             return None
+
+    def _status_to_level(self, status : int) ->str:
+        if status < 400 :
+            return "INFO"
+        elif status < 500:
+            return "WARN"
+        else:
+            return "ERROR"
