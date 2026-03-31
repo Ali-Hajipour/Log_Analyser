@@ -1,5 +1,6 @@
 import re
 from datetime import datetime
+from logging import exception
 from re import match
 
 from .base import BaseParser, LogEntry
@@ -36,3 +37,11 @@ class ApacheParser(BaseParser):
         protocol = match.group(6)
         status   = int(match.group(7))
         size = None if match.group(8) == "-" else int(match.group(8))
+
+        #return LogEntry
+
+    def parse_timestamp(self, raw_ts : str)-> datetime | None:
+        try :
+            return datetime.strptime(raw_ts.strip() , TIMESTAMP_FORMAT)
+        except (ValueError , TypeError):
+            return None
