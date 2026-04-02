@@ -47,6 +47,8 @@ class ApacheParser(BaseParser):
             extra={
                 "ip" : ip,
                 "user" : user,
+                "method" : method,
+                "path":path,
                 "protocol" : protocol,
                 "size" : size,
                 "status" : status
