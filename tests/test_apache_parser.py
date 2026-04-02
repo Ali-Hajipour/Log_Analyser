@@ -39,3 +39,7 @@ class TestApacheParserValidInput:
         assert entry.extra["path"] == "/login"
         assert entry.extra["status"] == 404
         assert entry.extra["size"] == 512
+
+    def test_status_is_integer(self,parser):
+        entry = parser.parse_line(VALID_LINE)
+        assert isinstance(entry.extra["status"] , int)
