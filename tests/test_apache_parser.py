@@ -29,3 +29,13 @@ class TestApacheParserValidInput:
     def test_message_contains_method_path_status(self,parser):
         entry = parser.parse_line(VALID_LINE)
         assert entry.message == "GET /login 404"
+
+    def test_all_extra_fields_are_present(self,parser):
+        entry = parser.parse_line(VALID_LINE)
+        assert entry.extra["ip"] == "192.168.1.1"
+        assert entry.extra["user"] == "frank"
+        assert entry.extra["protocol"] == "HTTP/1.1"
+        assert entry.extra["method"] == "GET"
+        assert entry.extra["path"] == "/login"
+        assert entry.extra["status"] == 404
+        assert entry.extra["size"] == 512
