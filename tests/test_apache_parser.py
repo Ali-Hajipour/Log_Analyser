@@ -51,3 +51,5 @@ class TestApacheParserValidInput:
     def test_user_extracted_correctly(self, parser):
         entry = parser.parse_line(VALID_LINE)
         assert entry.extra["user"] == "frank"
+
+class TestApacheParserInvalidInput:
