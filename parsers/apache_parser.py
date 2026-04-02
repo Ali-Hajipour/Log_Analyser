@@ -20,7 +20,7 @@ APACHE_PATTERN = re.compile(
 TIMESTAMP_FORMAT = "%d/%b/%Y:%H:%M:%S %z"
 
 class ApacheParser(BaseParser):
-    def json_parser(self , line : str) -> LogEntry | None:
+    def parse_line(self , line : str) -> LogEntry | None:
         line =line.strip()
         if not line :
             return None
