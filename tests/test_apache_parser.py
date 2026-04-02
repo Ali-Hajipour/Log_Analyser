@@ -55,3 +55,6 @@ class TestApacheParserValidInput:
 class TestApacheParserInvalidInput:
     def test_blank_line_returns_none(self,parser):
         assert parser.parse_line("") is None
+
+    def test_whitespace_line_returns_none(self, parser):
+        assert parser.parse_line("     ") is None
