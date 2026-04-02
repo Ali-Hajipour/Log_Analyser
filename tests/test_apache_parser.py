@@ -53,3 +53,5 @@ class TestApacheParserValidInput:
         assert entry.extra["user"] == "frank"
 
 class TestApacheParserInvalidInput:
+    def test_blank_line_returns_none(self,parser):
+        assert parser.parse_line("") is None
