@@ -25,3 +25,7 @@ class TestApacheParserValidInput:
     def test_source_is_apache(self , parser):
         entry = parser.parse_line(VALID_LINE)
         assert  entry.source == "apache"
+
+    def test_message_contains_method_path_status(self,parser):
+        entry = parser.parse_line(VALID_LINE)
+        assert entry.message == "GET /login 404"
