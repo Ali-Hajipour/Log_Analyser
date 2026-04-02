@@ -17,3 +17,7 @@ class TestApacheParserValidInput:
     def test_valid_line_returns_log_entry(self, parser):
         entry = parser.parse_line(VALID_LINE)
         assert isinstance(entry, LogEntry)
+
+    def test_raw_is_preserved(self, parser):
+        entry = parser.parse_line(VALID_LINE)
+        assert entry.raw == VALID_LINE
