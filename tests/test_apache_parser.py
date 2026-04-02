@@ -58,3 +58,6 @@ class TestApacheParserInvalidInput:
 
     def test_whitespace_line_returns_none(self, parser):
         assert parser.parse_line("     ") is None
+
+    def test_non_apache_line_returns_none(self, parser):
+        assert parser.parse_line("this is not an apache log line") is None
