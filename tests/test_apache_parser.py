@@ -47,3 +47,7 @@ class TestApacheParserValidInput:
     def test_ip_is_extracted_correctly(self,parser):
         entry = parser.parse_line(VALID_LINE)
         assert entry.extra["ip"] == "192.168.1.1"
+
+    def test_user_extracted_correctly(self, parser):
+        entry = parser.parse_line(VALID_LINE)
+        assert entry.extra["user"] == "frank"
