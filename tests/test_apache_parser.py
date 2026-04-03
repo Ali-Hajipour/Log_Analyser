@@ -89,3 +89,6 @@ class TestStatusToLevel:
     def test_500_maps_to_error(self,parser):
         line = '192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 500 512'
         assert parser.parse_line(line).level == "ERROR"
+    def test_503_maps_to_error(self,parser):
+        line = '192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 503 512'
+        assert parser.parse_line(line).level == "ERROR"
