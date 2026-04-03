@@ -64,3 +64,6 @@ class TestApacheParserInvalidInput:
 
     def test_json_line_returns_none(self, parser):
         assert parser.parse_line('{"level": "ERROR", "message": "Disk full"}') is None
+
+    def test_partial_line_returns_none(self, parser):
+        assert parser.parse_line("192.168.1.1 - -") is None
