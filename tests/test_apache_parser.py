@@ -73,3 +73,7 @@ class TestStatusToLevel:
     def test_200_maps_to_info(self, parser):
         line = '192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 200 512'
         assert parser.parse_line(line).level == "INFO"
+
+    def test_301_maps_to_info(self, parser):
+        line = '192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 301 512'
+        assert parser.parse_line(line).level == "INFO"
