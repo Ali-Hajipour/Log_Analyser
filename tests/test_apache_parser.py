@@ -92,3 +92,14 @@ class TestStatusToLevel:
     def test_503_maps_to_error(self,parser):
         line = '192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 503 512'
         assert parser.parse_line(line).level == "ERROR"
+class TestApacheTimestamp:
+    def test_apache_timestamp_parsed(self , parser):
+        entry = parser.parse_line(VALID_LINE)
+        assert entry.timestamp is not None
+        assert  isinstance(entry.timestamp, datetime)
+        assert entry.timestamp.day    == 15
+        assert entry.timestamp.month  == 1
+        assert entry.timestamp.year   == 2024
+        assert entry.timestamp.hour   == 10
+        assert entry.timestamp.minute == 23
+        assert entry.timestamp.second == 45
