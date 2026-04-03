@@ -115,3 +115,6 @@ class TestApacheUserField:
 
     def test_username_extracted(self,parser):
         assert parser.parse_line(VALID_LINE).extra["user"] == "frank"
+
+    def test_anonymous_user_is_dash(self,parser):
+        assert parser.parse_line(NO_USER).extra["user"] == "-"
