@@ -61,3 +61,6 @@ class TestApacheParserInvalidInput:
 
     def test_non_apache_line_returns_none(self, parser):
         assert parser.parse_line("this is not an apache log line") is None
+
+    def test_json_line_returns_none(self, parser):
+        assert parser.parse_line('{"level": "ERROR", "message": "Disk full"}') is None
