@@ -145,3 +145,10 @@ class TestParseString:
         assert len(entries) == 2
         assert entries[0].level == "INFO"
         assert entries[1].level == "ERROR"
+
+    def test_returns_log_entry_instances(self,parser):
+        entries = list(parser.parse_string(
+            '192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 200 512'
+        ))
+
+        assert isinstance(entries[0] , LogEntry)
