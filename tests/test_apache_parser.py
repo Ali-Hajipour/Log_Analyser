@@ -120,3 +120,18 @@ class TestApacheUserField:
         assert parser.parse_line(NO_USER).extra["user"] == "-"
 
 class TestParseString:
+
+    def test_multiple_apache_lines(self,parser):
+        text = """
+192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 200 512
+192.168.1.2 - - [15/Jan/2024:10:23:46 +0000] "POST /login HTTP/1.1" 401 128
+192.168.1.3 - - [15/Jan/2024:10:23:47 +0000] "GET /admin HTTP/1.1" 500 0
+"""
+        entries = list(parser.parse_string(text))
+        assert len(entries) == 3
+        assert entries[1].extra["method"] == "POST"
+        assert entries[0].level == "INFO"
+        assert entries[1].level == "WARN"
+        assert entries[2].level == "ERROR"
+
+
