@@ -107,3 +107,6 @@ class TestApacheSizeField:
 
     def test_numeric_size_converted_to_int(self,parser):
         assert isinstance(parser.parse_line(VALID_LINE).extra["size"], int)
+
+    def test_dash_size_returns_none(self,parser):
+        assert parser.parse_line(NO_SIZE).extra["size"] is None
