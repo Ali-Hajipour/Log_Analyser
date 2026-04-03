@@ -110,3 +110,8 @@ class TestApacheSizeField:
 
     def test_dash_size_returns_none(self,parser):
         assert parser.parse_line(NO_SIZE).extra["size"] is None
+
+class TestApacheUserField:
+
+    def test_username_extracted(self,parser):
+        assert parser.parse_line(VALID_LINE).extra["user"] == "frank"
