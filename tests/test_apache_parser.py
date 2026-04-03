@@ -103,3 +103,4 @@ class TestApacheTimestamp:
         assert entry.timestamp.hour   == 10
         assert entry.timestamp.minute == 23
         assert entry.timestamp.second == 45
+class TestApacheSizeField:
