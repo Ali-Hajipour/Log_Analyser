@@ -104,3 +104,6 @@ class TestApacheTimestamp:
         assert entry.timestamp.minute == 23
         assert entry.timestamp.second == 45
 class TestApacheSizeField:
+
+    def test_numeric_size_converted_to_int(self,parser):
+        assert isinstance(parser.parse_line(VALID_LINE).extra["size"], int)
