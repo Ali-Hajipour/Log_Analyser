@@ -134,4 +134,14 @@ class TestParseString:
         assert entries[1].level == "WARN"
         assert entries[2].level == "ERROR"
 
+    def test_blank_lines_skipped(self,parser):
 
+        text = """
+192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 200 512
+
+192.168.1.3 - - [15/Jan/2024:10:23:47 +0000] "GET /admin HTTP/1.1" 500 0
+"""
+        entries = list(parser.parse_string(text))
+        assert len(entries) == 2
+        assert entries[0].level == "INFO"
+        assert entries[1].level == "ERROR"
