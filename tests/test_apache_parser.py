@@ -118,3 +118,5 @@ class TestApacheUserField:
 
     def test_anonymous_user_is_dash(self,parser):
         assert parser.parse_line(NO_USER).extra["user"] == "-"
+
+class TestParseString:
