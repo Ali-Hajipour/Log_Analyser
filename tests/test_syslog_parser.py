@@ -19,3 +19,6 @@ class TestSyslogParserValidInput:
 
     def test_valid_log_returns_logentry(self,parser):
         assert isinstance(parser.parse_line(VALID_LINE) , LogEntry)
+
+    def test_raw_is_preserved(self,parser):
+        assert parser.parse_line(VALID_LINE).raw == VALID_LINE
