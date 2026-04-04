@@ -40,3 +40,5 @@ class TestSyslogParserValidInput:
 
     def test_pid_extracted_as_integer(self,parser):
         assert isinstance(parser.parse_line(VALID_LINE).extra["pid"] , int)
+
+class TestSyslogParserInvalidInput:
