@@ -61,3 +61,6 @@ class TestSyslogParserInvalidInput:
 class TestSyslogPidField :
     def test_pid_present(self,parser):
         assert  parser.parse_line(VALID_LINE).extra["pid"] == 1234
+
+    def test_pid_missing_returns_none(self,parser):
+        assert parser.parse_line(NO_PID_LINE).extra["pid"] is None
