@@ -51,3 +51,6 @@ class TestSyslogParserInvalidInput:
 
     def test_non_syslog_line_returns_none(self,parser):
         assert parser.parse_line("this is abosulotely not a syslog") is None
+
+    def test_json_line_returns_none(self,parser):
+        assert parser.parse_line('{"level": "ERROR", "message": "Disk full"}') is None
