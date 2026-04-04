@@ -17,3 +17,5 @@ def parser():
 
 class TestSyslogParserValidInput:
 
+    def test_valid_log_returns_logentry(self,parser):
+        assert isinstance(parser.parse_line(VALID_LINE) , LogEntry)
