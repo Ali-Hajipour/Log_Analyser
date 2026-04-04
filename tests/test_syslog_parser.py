@@ -2,3 +2,10 @@ import pytest
 from datetime import datetime
 from parsers.syslog_parser import SyslogParser
 from parsers.base import LogEntry
+
+VALID_LINE     = 'Apr 04 10:23:45 webserver sshd[1234]: Failed password for root from 192.168.1.1'
+NO_PID_LINE    = 'Apr 04 10:23:45 webserver kernel: Disk full on /dev/sda1'
+ACCEPTED_LINE  = 'Apr 04 10:23:45 webserver sshd[1234]: Accepted password for deploy from 10.0.0.1'
+PANIC_LINE     = 'Apr 04 10:23:45 webserver kernel: Kernel panic - not syncing: Fatal exception'
+WARNING_LINE   = 'Apr 04 10:23:45 webserver nginx[9012]: warning: disk space low'
+PLAIN_LINE     = 'Apr 04 10:23:45 webserver cron[7890]: (root) CMD (/usr/bin/backup.sh)'
