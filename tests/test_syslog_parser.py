@@ -34,3 +34,9 @@ class TestSyslogParserValidInput:
 
     def test_app_in_extra(self , parser):
         assert parser.parse_line(VALID_LINE).extra["app"] == "sshd"
+
+    def test_pid_is_extracted(self,parser):
+        assert parser.parse_line(VALID_LINE).extra["pid"] == 1234
+
+    def test_pid_extracted_as_integer(self,parser):
+        assert isinstance(parser.parse_line(VALID_LINE).extra["pid"] , int)
