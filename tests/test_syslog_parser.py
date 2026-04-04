@@ -28,3 +28,5 @@ class TestSyslogParserValidInput:
 
     def test_source_is_app_name(self,parser):
         assert parser.parse_line(VALID_LINE).source == "sshd"
+    def test_hostname_in_extra(self , parser):
+        assert parser.parse_line(VALID_LINE).extra["hostname"] == "webserver"
