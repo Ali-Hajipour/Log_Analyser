@@ -1,5 +1,7 @@
 import re
 from datetime import datetime
+from logging import raiseExceptions
+
 from .base import BaseParser,LogEntry
 
 SYSLOG_PATTERN = re.compile(
@@ -36,3 +38,13 @@ class SyslogParser(BaseParser):
         line = line.strip()
         if not line :
             return None
+
+        match = SYSLOG_PATTERN.match(line)
+        if not match :
+            return None
+
+        raw_ts = match.group(1)
+        hostname = match.group(2)
+        app = match.group(3).rstrip(":")
+        pid = match.group(4)
+        message = match.group(5).strip()
