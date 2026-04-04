@@ -28,3 +28,6 @@ LEVEL_MAP ={
     "started" : "INFO",
     "debug" : "DEBUG"
 }
+
+
+class SyslogParser(BaseParser):
