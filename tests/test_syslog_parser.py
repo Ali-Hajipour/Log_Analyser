@@ -59,3 +59,5 @@ class TestSyslogParserInvalidInput:
         assert parser.parse_line('192.168.1.1 - - [15/Jan/2024:10:23:45 +0000] "GET / HTTP/1.1" 200 512') is None
 
 class TestSyslogPidField :
+    def test_pid_present(self,parser):
+        assert  parser.parse_line(VALID_LINE).extra["pid"] == 1234
