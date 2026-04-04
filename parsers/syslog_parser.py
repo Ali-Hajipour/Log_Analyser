@@ -31,3 +31,8 @@ LEVEL_MAP ={
 
 
 class SyslogParser(BaseParser):
+
+    def parse_line(self, line : str)-> LogEntry | None:
+        line = line.strip()
+        if not line :
+            return None
