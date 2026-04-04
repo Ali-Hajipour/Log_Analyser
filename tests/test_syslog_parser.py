@@ -22,3 +22,6 @@ class TestSyslogParserValidInput:
 
     def test_raw_is_preserved(self,parser):
         assert parser.parse_line(VALID_LINE).raw == VALID_LINE
+
+    def test_message_extracted(self,parser):
+        assert parser.parse_line(VALID_LINE).message == "Failed password for root from 192.168.1.1"
