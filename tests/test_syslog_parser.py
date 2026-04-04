@@ -15,3 +15,5 @@ PLAIN_LINE     = 'Apr 04 10:23:45 webserver cron[7890]: (root) CMD (/usr/bin/bac
 def parser():
     return SyslogParser()
 
+class TestSyslogParserValidInput:
+
