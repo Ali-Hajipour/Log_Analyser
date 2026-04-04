@@ -9,3 +9,9 @@ ACCEPTED_LINE  = 'Apr 04 10:23:45 webserver sshd[1234]: Accepted password for de
 PANIC_LINE     = 'Apr 04 10:23:45 webserver kernel: Kernel panic - not syncing: Fatal exception'
 WARNING_LINE   = 'Apr 04 10:23:45 webserver nginx[9012]: warning: disk space low'
 PLAIN_LINE     = 'Apr 04 10:23:45 webserver cron[7890]: (root) CMD (/usr/bin/backup.sh)'
+
+@pytest.fixture
+
+def parser():
+    return SyslogParser()
+
