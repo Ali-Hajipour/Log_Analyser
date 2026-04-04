@@ -48,3 +48,6 @@ class TestSyslogParserInvalidInput:
 
     def test_whitespace_returns_none(self,parser):
         assert parser.parse_line(" ") is None
+
+    def test_non_syslog_line_returns_none(self,parser):
+        assert parser.parse_line("this is abosulotely not a syslog") is None
