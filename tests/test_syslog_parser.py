@@ -42,3 +42,6 @@ class TestSyslogParserValidInput:
         assert isinstance(parser.parse_line(VALID_LINE).extra["pid"] , int)
 
 class TestSyslogParserInvalidInput:
+
+    def test_blank_line_returns_none(self,parser):
+        assert parser.parse_line("") is None
