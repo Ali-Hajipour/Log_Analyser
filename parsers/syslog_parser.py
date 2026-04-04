@@ -59,3 +59,12 @@ class SyslogParser(BaseParser):
                             "pid" :  int(pid) if pid else None,
                             "app" : app
         })
+
+
+    def parse_timestamp(self, raw_ts):
+        try:
+            year = datetime.now().year
+
+            return datetime.strptime(f"{year}{raw_ts}", TIMESTAMP_FORMAT)
+        except (ValueError , TypeError):
+            return None
