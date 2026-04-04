@@ -50,7 +50,8 @@ class SyslogParser(BaseParser):
         message = match.group(5).strip()
 
 
-        return LogEntry(#timestamp=  ,
+        return LogEntry(timestamp=self.parse_timestamp(raw_ts)  ,
+                        level= self.detect_level(message),
                         message = message,
                         source = app,
                         raw=line,
@@ -68,3 +69,10 @@ class SyslogParser(BaseParser):
             return datetime.strptime(f"{year}{raw_ts}", TIMESTAMP_FORMAT)
         except (ValueError , TypeError):
             return None
+
+    def detect_level(self ,  message: str) ->str:
+        message_lower = message.lower()
+        for keyword , level in LEVEL_MAP.items():
+            if keyword in message_lower :
+                return level
+            return "INFO"
