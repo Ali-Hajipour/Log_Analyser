@@ -10,4 +10,6 @@ SYSLOG_PATTERN = re.compile(
     r':\s*(.*)'
 )
 
+TIMESTAMP_FORMAT = "%Y %b %d %H:%M:%S"
+
 
