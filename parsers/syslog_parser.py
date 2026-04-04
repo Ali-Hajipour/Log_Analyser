@@ -48,3 +48,14 @@ class SyslogParser(BaseParser):
         app = match.group(3).rstrip(":")
         pid = match.group(4)
         message = match.group(5).strip()
+
+
+        return LogEntry(#timestamp=  ,
+                        message = message,
+                        source = app,
+                        raw=line,
+                        extra={
+                            "hostname" : hostname,
+                            "pid" :  int(pid) if pid else None,
+                            "app" : app
+        })
