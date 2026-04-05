@@ -84,3 +84,7 @@ class TestSyslogLevelDetection:
 
     def test_no_keyword_maps_to_info(self,parser):
         assert parser.parse_line(PLAIN_LINE).level == "INFO"
+
+    def test_level_detection_case_insensitive(self, parser):
+        line = 'Jan 15 10:23:45 webserver app[1]: ERROR something broke'
+        assert parser.parse_line(line).level == "ERROR"
