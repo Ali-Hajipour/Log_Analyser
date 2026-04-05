@@ -75,4 +75,4 @@ class SyslogParser(BaseParser):
         for keyword , level in LEVEL_MAP.items():
             if keyword in message_lower :
                 return level
-            return "INFO"
+        return "INFO"

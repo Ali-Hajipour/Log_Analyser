@@ -69,3 +69,6 @@ class TestSyslogPidField :
         assert parser.parse_line(NO_PID_LINE).extra["pid"] is None
 
 class TestSyslogLevelDetection:
+
+    def test_failed_maps_to_error(self,parser):
+        assert parser.parse_line(VALID_LINE).level == "ERROR"
