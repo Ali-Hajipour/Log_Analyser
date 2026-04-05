@@ -88,6 +88,9 @@ class TestSyslogLevelDetection:
     def test_level_detection_case_insensitive(self, parser):
         line = 'Jan 15 10:23:45 webserver app[1]: ERROR something broke'
         assert parser.parse_line(line).level == "ERROR"
+
     def test_uppercase_failed_detected(self, parser):
         line = 'Jan 15 10:23:45 webserver app[1]: FAILED to connect'
         assert parser.parse_line(line).level == "ERROR"
+
+class TestSyslogTimestamp:
