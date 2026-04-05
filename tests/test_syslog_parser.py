@@ -118,3 +118,16 @@ class TestSyslogNoPid:
        assert entry.message == "Disk full on /dev/sda1"
 
 class TestParseString :
+
+    def test_multiple_syslog_lines(self,parser):
+        text = """
+Apr 05 10:23:45 webserver sshd[1234]: Failed password for root
+Apr 05 10:23:46 webserver sshd[1234]: Accepted password for deploy
+Apr 05 10:23:47 webserver kernel: Kernel panic - not syncing
+"""
+        entries = list(parser.parse_string(text))
+        assert len(entries) == 3
+        assert entries[0].raw == "Apr 05 10:23:45 webserver sshd[1234]: Failed password for root"
+        assert entries[0].level == "ERROR"
+        assert entries[1].level == "INFO"
+        assert entries[2].level == "CRITICAL"
