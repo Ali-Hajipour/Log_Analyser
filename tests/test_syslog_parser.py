@@ -81,3 +81,6 @@ class TestSyslogLevelDetection:
 
     def test_warning_maps_to_info(self,parser):
         assert parser.parse_line(WARNING_LINE).level == "WARN"
+
+    def test_no_keyword_maps_to_info(self,parser):
+        assert parser.parse_line(PLAIN_LINE).level == "INFO"
