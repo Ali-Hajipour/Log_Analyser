@@ -110,3 +110,6 @@ class TestSyslogTimestamp:
     def test_invalid_timestamp_returns_none(self,parser):
         assert parser.parse_line('Xyz 99 99:99:99 webserver app[1]: message').timestamp is None
 
+class SyslogNoPid:
+
+
