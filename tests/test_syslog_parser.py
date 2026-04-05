@@ -110,6 +110,9 @@ class TestSyslogTimestamp:
     def test_invalid_timestamp_returns_none(self,parser):
         assert parser.parse_line('Xyz 99 99:99:99 webserver app[1]: message').timestamp is None
 
-class SyslogNoPid:
+class TestSyslogNoPid:
 
-
+    def test_no_pid_line_parsed_correctly(self,parser):
+       entry = (parser.parse_line(NO_PID_LINE))
+       assert entry.extra["pid"] is None
+       assert entry.message == "Disk full on /dev/sda1"
