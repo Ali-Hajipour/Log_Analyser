@@ -75,3 +75,6 @@ class TestSyslogLevelDetection:
 
     def test_accepted_maps_to_info(self,parser):
         assert parser.parse_line(ACCEPTED_LINE).level == "INFO"
+
+    def test_panic_maps_to_info(self,parser):
+        assert parser.parse_line(PANIC_LINE).level == "CRITICAL"
