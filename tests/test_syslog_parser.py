@@ -41,6 +41,9 @@ class TestSyslogParserValidInput:
     def test_pid_extracted_as_integer(self,parser):
         assert isinstance(parser.parse_line(VALID_LINE).extra["pid"] , int)
 
+    def test_returns_log_entry_instances(self,parser):
+        assert isinstance(parser.parse_line(VALID_LINE) , LogEntry)
+
 class TestSyslogParserInvalidInput:
 
     def test_blank_line_returns_none(self,parser):
@@ -142,4 +145,5 @@ Apr 05 10:23:47 webserver kernel: Kernel panic - not syncing
         assert len(entries) == 2
         assert entries[0].level == "ERROR"
         assert entries[1].level == "CRITICAL"
+
 
