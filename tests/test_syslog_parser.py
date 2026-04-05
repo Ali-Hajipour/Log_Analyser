@@ -72,3 +72,6 @@ class TestSyslogLevelDetection:
 
     def test_failed_maps_to_error(self,parser):
         assert parser.parse_line(VALID_LINE).level == "ERROR"
+
+    def test_accepted_maps_to_info(self,parser):
+        assert parser.parse_line(ACCEPTED_LINE).level == "INFO"
