@@ -78,3 +78,6 @@ class TestSyslogLevelDetection:
 
     def test_panic_maps_to_info(self,parser):
         assert parser.parse_line(PANIC_LINE).level == "CRITICAL"
+
+    def test_warning_maps_to_info(self,parser):
+        assert parser.parse_line(WARNING_LINE).level == "WARN"
