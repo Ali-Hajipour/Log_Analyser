@@ -94,3 +94,13 @@ class TestSyslogLevelDetection:
         assert parser.parse_line(line).level == "ERROR"
 
 class TestSyslogTimestamp:
+    def test_valid_timestamp_parsed(self,parser):
+        entry = parser.parse_line(VALID_LINE)
+        assert entry.timestamp is not None
+        assert isinstance(entry.timestamp, datetime)
+        assert entry.timestamp.month  == 4
+        assert entry.timestamp.day    == 4
+        assert entry.timestamp.hour   == 10
+        assert entry.timestamp.minute == 23
+        assert entry.timestamp.second == 45
+
