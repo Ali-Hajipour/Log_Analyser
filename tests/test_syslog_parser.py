@@ -107,3 +107,6 @@ class TestSyslogTimestamp:
     def test_timestamp_year_is_correct(self, parser):
         assert parser.parse_line(VALID_LINE).timestamp.year == datetime.now().year
 
+    def test_invalid_timestamp_returns_none(self,parser):
+        assert parser.parse_line('Xyz 99 99:99:99 webserver app[1]: message').timestamp is None
+
