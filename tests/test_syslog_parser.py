@@ -116,3 +116,5 @@ class TestSyslogNoPid:
        entry = (parser.parse_line(NO_PID_LINE))
        assert entry.extra["pid"] is None
        assert entry.message == "Disk full on /dev/sda1"
+
+class TestParseString :
