@@ -104,3 +104,6 @@ class TestSyslogTimestamp:
         assert entry.timestamp.minute == 23
         assert entry.timestamp.second == 45
 
+    def test_timestamp_year_is_correct(self, parser):
+        assert parser.parse_line(VALID_LINE).timestamp.year == datetime.now().year
+
