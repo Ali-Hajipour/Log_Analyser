@@ -62,11 +62,11 @@ class SyslogParser(BaseParser):
         })
 
 
-    def parse_timestamp(self, raw_ts):
+    def parse_timestamp(self, raw_ts)->datetime |None:
         try:
             year = datetime.now().year
 
-            return datetime.strptime(f"{year}{raw_ts}", TIMESTAMP_FORMAT)
+            return datetime.strptime(f"{year} {raw_ts}", TIMESTAMP_FORMAT)
         except (ValueError , TypeError):
             return None
 
