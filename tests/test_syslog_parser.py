@@ -68,3 +68,4 @@ class TestSyslogPidField :
     def test_pid_missing_returns_none(self,parser):
         assert parser.parse_line(NO_PID_LINE).extra["pid"] is None
 
+class TestSyslogLevelDetection:
