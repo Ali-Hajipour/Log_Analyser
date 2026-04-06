@@ -54,3 +54,14 @@ def detect_spikes (errors_by_hour :Counter ) ->list:
     deviation = stdev(numbers)
     threshold = baseline + (2 * deviation)
 
+    spikes =[]
+
+    for hour , count in errors_by_hour.items():
+        if count > threshold :
+            spikes.append({
+                "hour" : hour,
+                "error_count" : count,
+                "baseline" :  round(baseline, 2),
+                "multiplier" : round(count/baseline , 1) if baseline > 0 else 0
+            })
+
