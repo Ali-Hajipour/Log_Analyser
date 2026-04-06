@@ -48,3 +48,9 @@ def detect_spikes (errors_by_hour :Counter ) ->list:
     if len(errors_by_hour) < 3:
         return []
 
+    numbers = list(errors_by_hour.values())
+
+    baseline = mean(numbers)
+    deviation = stdev(numbers)
+    threshold = baseline + (2 * deviation)
+
