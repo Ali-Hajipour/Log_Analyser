@@ -25,3 +25,8 @@ def analyse(entries : Iterator[LogEntry]) -> dict :
 
         if entry.source :
             source_counts[entry.source] += 1
+
+        ip = entry.get("ip")
+
+        if ip:
+            ip_counts[ip] += 1
