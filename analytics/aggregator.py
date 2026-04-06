@@ -65,3 +65,4 @@ def detect_spikes (errors_by_hour :Counter ) ->list:
                 "multiplier" : round(count/baseline , 1) if baseline > 0 else 0
             })
 
+    return sorted(spikes , key=lambda x : x["error_count"], reverse=True)
