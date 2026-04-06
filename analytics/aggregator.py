@@ -42,3 +42,9 @@ def analyse(entries : Iterator[LogEntry]) -> dict :
         #"spikes" : detect_spikes()
 
     }
+
+def detect_spikes (errors_by_hour :Counter ) ->list:
+
+    if len(errors_by_hour) < 3:
+        return []
+
