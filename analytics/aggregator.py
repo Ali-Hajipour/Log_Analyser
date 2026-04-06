@@ -22,3 +22,6 @@ def analyse(entries : Iterator[LogEntry]) -> dict :
             error_count += 1
             if entry.timestamp:
                 errors_by_hour[entry.timestamp.hour] += 1
+
+        if entry.source :
+            source_counts[entry.source] += 1
