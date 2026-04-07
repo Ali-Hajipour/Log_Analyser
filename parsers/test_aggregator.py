@@ -30,3 +30,8 @@ class TestAnalyseBasics:
     def test_empty_entries_returns_error_rate(self):
         assert analyse(iter([]))["error_rate"] == 0.0
 
+    def test_total_counts_all_entries (self):
+        entries =  [ make_entry() for _ in range (10)]
+        assert  analyse(iter(entries))["total"] == 10
+
+
