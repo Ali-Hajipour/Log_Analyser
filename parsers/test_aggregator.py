@@ -24,4 +24,5 @@ def make_ts(hour : int) -> datetime:
     return datetime(2026,4,7, hour,0,0)
 
 class TestAnalyseBasics:
-
+    def test_empty_entries_returns_zero_total(self):
+        assert analyse(iter([]))["total"] == 0
