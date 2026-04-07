@@ -34,8 +34,8 @@ def analyse(entries : Iterator[LogEntry]) -> dict :
     return {
         "total" : total,
         "error_count" : error_count,
-        "error rate" : round(error_count / total , 4) if total > 0 else 0.0,
-        "level count" : dict(level_count),
+        "error_rate" : round(error_count / total , 4) if total > 0 else 0.0,
+        "level_count" : dict(level_count),
         "errors_by_hour" : dict(errors_by_hour),
         "top_ip_addresses" : ip_counts.most_common(10),
         "top_sources" :  source_counts.most_common(10),
