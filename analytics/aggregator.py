@@ -8,7 +8,7 @@ def analyse(entries : Iterator[LogEntry]) -> dict :
     total = 0
     error_count = 0
     level_count = Counter()
-    errors_by_hour : Counter()
+    errors_by_hour = Counter()
     source_counts = Counter()
     ip_counts = Counter ()
 
