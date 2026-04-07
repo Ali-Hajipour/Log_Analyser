@@ -19,3 +19,6 @@ def make_entry(
         raw= "raw line",
         extra = {"ip" : ip} if ip else {}
     )
+
+def make_ts(hour : int) -> datetime:
+    return datetime(2026,4,7, hour,0,0)
