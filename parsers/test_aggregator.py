@@ -34,4 +34,9 @@ class TestAnalyseBasics:
         entries =  [ make_entry() for _ in range (10)]
         assert  analyse(iter(entries))["total"] == 10
 
+    def test_single_entry(self):
+        result = analyse(iter([make_entry(level="ERROR")]))
+        assert result["total"] == 1
+        assert result["error_count"] == 1
+
 
