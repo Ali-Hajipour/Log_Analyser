@@ -120,4 +120,4 @@ class TestAnalyseErrorsByHour:
         result = analyse(iter([make_entry(level="INFO")]))
         assert result["errors_by_hour"] == {}
 
-
+class TestAnalyseTopSources:
