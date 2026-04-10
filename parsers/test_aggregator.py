@@ -73,3 +73,9 @@ class TestAnalyseErrorRate:
         result = analyse(iter(entries))
         assert result["error_count"] == 0
         assert result["error_rate"] == 0.0
+
+    def test_all_errors_gives_the_rate_of_one(self):
+        entries = [make_entry(level="ERROR") for _ in range(10)]
+        result = analyse(iter(entries))
+
+        assert result["error_rate"] == 1.0
