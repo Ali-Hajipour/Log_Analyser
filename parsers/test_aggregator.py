@@ -54,3 +54,9 @@ class TestAnalyseLevelCount:
         assert result["level_count"]["INFO"] == 2
         assert result["level_count"]["WARN"] == 1
         assert result["level_count"]["ERROR"] == 2
+
+    def test_none_level_counted_as_unknown(self):
+        entry = [make_entry(level=None)]
+        result = analyse(iter(entry))
+
+        assert result["level_count"]["UNKNOWN"] == 1
