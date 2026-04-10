@@ -121,3 +121,12 @@ class TestAnalyseErrorsByHour:
         assert result["errors_by_hour"] == {}
 
 class TestAnalyseTopSources:
+    def test_top_sources_sorted_by_count(self):
+        entries = [
+            make_entry(source="api"),
+            make_entry(source="api"),
+            make_entry(source="nginx"),
+        ]
+        result = analyse(iter(entries))
+        assert result["top_sources"][0] == ("api", 2)
+        assert result["top_sources"][1] == ("nginx", 1)
