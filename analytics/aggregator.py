@@ -15,7 +15,7 @@ def analyse(entries : Iterator[LogEntry]) -> dict :
     for entry in entries :
         total += 1
 
-        level = entry.level or "Uknown"
+        level = entry.level or "UNKNOWN"
         level_count[level] += 1
 
         if level in(["ERROR" , "CRITICAL"]):
