@@ -97,3 +97,10 @@ class TestAnalyseErrorRate:
 
         result  = analyse(iter(entries))
         assert result["error_rate"] == 0.5
+
+    def test_error_rate_rounded_to_4_decimals(self):
+        entries = ([make_entry(level="INFO") for _ in range (3)] +
+                   [make_entry(level="ERROR") ])
+        result = analyse(iter(entries))
+
+        assert result["error_rate"] ==
