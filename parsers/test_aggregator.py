@@ -103,4 +103,4 @@ class TestAnalyseErrorRate:
                    [make_entry(level="ERROR") ])
         result = analyse(iter(entries))
 
-        assert result["error_rate"] ==
+        assert result["error_rate"] == 0.25
