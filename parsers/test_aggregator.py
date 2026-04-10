@@ -79,3 +79,12 @@ class TestAnalyseErrorRate:
         result = analyse(iter(entries))
 
         assert result["error_rate"] == 1.0
+
+    def test_half_errors_gives_the_rate_of_half(self):
+        entries = (
+                [make_entry(level="ERROR") for _ in range(5)] +
+                [make_entry(level="INFO")  for _ in range(5)]
+        )
+        result = analyse(iter(entries))
+
+        assert result["error_rate"] == 0.5
