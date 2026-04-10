@@ -104,3 +104,5 @@ class TestAnalyseErrorRate:
         result = analyse(iter(entries))
 
         assert result["error_rate"] == 0.25
+
+class TestAnalyseErrorsByHour:
