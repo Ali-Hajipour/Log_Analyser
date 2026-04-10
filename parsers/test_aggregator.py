@@ -116,3 +116,8 @@ class TestAnalyseErrorsByHour:
         assert result["errors_by_hour"][14] == 1
         assert result["errors_by_hour"][10] == 2
 
+    def test_entry_without_ts_wont_counted(self):
+        result = analyse(iter([make_entry(level="INFO")]))
+        assert result["errors_by_hour"] == {}
+
+
