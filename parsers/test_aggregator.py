@@ -106,3 +106,13 @@ class TestAnalyseErrorRate:
         assert result["error_rate"] == 0.25
 
 class TestAnalyseErrorsByHour:
+    def test_errors_grouped_by_hour(self):
+        entries = (
+                [make_entry(level="ERROR", timestamp=make_ts(10))]
+            +  [make_entry(level="ERROR" , timestamp=make_ts(10)) ]
+            +   [make_entry(level="ERROR" ,timestamp= make_ts(14) )]
+        )
+        result = analyse(iter(entries))
+        assert result["errors_by_hour"][14] == 1
+        assert result["errors_by_hour"][10] == 2
+
