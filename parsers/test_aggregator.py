@@ -68,3 +68,8 @@ class TestAnalyseLevelCount:
         assert result["level_count"]["CRITICAL"] ==  1
 
 class TestAnalyseErrorRate:
+    def test_zero_errors_gives_zero_error_rate(self):
+        entries = [make_entry(level="INFO") for _ in range(10)]
+        result = analyse(iter(entries))
+        assert result["error_count"] == 0
+        assert result["error_rate"] == 0.0
