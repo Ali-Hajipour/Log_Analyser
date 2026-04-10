@@ -41,3 +41,16 @@ class TestAnalyseBasics:
 
 
 class TestAnalyseLevelCount:
+
+    def test_level_counts_correct(self):
+        entries = [
+            make_entry(level="INFO"),
+            make_entry(level="INFO"),
+            make_entry(level="ERROR"),
+            make_entry(level="WARN"),
+            make_entry(level="ERROR")
+        ]
+        result = analyse(iter(entries))
+        assert result["level_count"]["INFO"] == 2
+        assert result["level_count"]["WARN"] == 1
+        assert result["level_count"]["ERROR"] == 2
