@@ -40,3 +40,4 @@ class TestAnalyseBasics:
         assert result["error_count"] == 1
 
 
+class TestAnalyseLevelCount:
