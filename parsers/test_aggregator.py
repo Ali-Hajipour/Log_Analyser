@@ -60,3 +60,9 @@ class TestAnalyseLevelCount:
         result = analyse(iter(entry))
 
         assert result["level_count"]["UNKNOWN"] == 1
+
+    def test_critical_counted_in_level_counts(self):
+        entry = [make_entry(level="CRITICAL")]
+        result = analyse(iter(entry))
+
+        assert result["level_count"]["CRITICAL"] ==  1
