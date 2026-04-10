@@ -88,3 +88,12 @@ class TestAnalyseErrorRate:
         result = analyse(iter(entries))
 
         assert result["error_rate"] == 0.5
+
+    def test_critical_counts_in_error_rate(self):
+        entries=(
+                [make_entry(level="CRITICAL")] +
+                [make_entry(level="INFO")]
+        )
+
+        result  = analyse(iter(entries))
+        assert result["error_rate"] == 0.5
