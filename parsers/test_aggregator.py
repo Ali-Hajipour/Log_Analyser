@@ -66,3 +66,5 @@ class TestAnalyseLevelCount:
         result = analyse(iter(entry))
 
         assert result["level_count"]["CRITICAL"] ==  1
+
+class TestAnalyseErrorRate:
