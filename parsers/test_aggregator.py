@@ -130,3 +130,8 @@ class TestAnalyseTopSources:
         result = analyse(iter(entries))
         assert result["top_sources"][0] == ("api", 2)
         assert result["top_sources"][1] == ("nginx", 1)
+
+    def test_entry_without_source_not_counted(self):
+        entry = [make_entry(source=None)]
+        result = analyse(iter(entry))
+        assert result["top_sources"] == []
