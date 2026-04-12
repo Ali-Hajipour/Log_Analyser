@@ -140,3 +140,5 @@ class TestAnalyseTopSources:
         entries =([make_entry( source= f"service {i}") for i in range(20)])
         result = analyse(iter(entries))
         assert len(result["top_sources"]) == 10
+
+class TestAnalyseTopIps:
