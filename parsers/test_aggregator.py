@@ -135,3 +135,8 @@ class TestAnalyseTopSources:
         entry = [make_entry(source=None)]
         result = analyse(iter(entry))
         assert result["top_sources"] == []
+
+    def test_top_sources_limited_to_10(self):
+        entries =([make_entry( source= f"service {i}") for i in range(20)])
+        result = analyse(iter(entries))
+        assert len(result["top_sources"]) == 10
