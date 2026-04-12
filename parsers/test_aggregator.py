@@ -142,3 +142,11 @@ class TestAnalyseTopSources:
         assert len(result["top_sources"]) == 10
 
 class TestAnalyseTopIps:
+
+    def test_top_ips_sorted_by_count(self):
+       entries =( [make_entry(ip=f"192.168.1.1") for _ in range (10)] +
+                  [make_entry(ip=f"192.168.2.2") for _ in range (5)])
+       result =analyse(iter(entries))
+       assert len(result["top_ip_addresses"]) == 2
+       assert result["top_ip_addresses"][0] == ("192.168.1.1", 10)
+       assert result["top_ip_addresses"][1] == ("192.168.2.2", 5)
