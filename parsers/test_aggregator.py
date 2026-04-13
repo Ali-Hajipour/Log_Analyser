@@ -166,3 +166,9 @@ class TestDetectSpikes :
     def test_fewer_than_3_hours_returns_empty(self):
         errors_by_hour = Counter({17 : 100 , 11:2})
         assert detect_spikes(errors_by_hour) == []
+
+    def test_no_spikes_when_all_hours_all_equal(self):
+        errors_by_hour = Counter({6 : 10 , 7 : 10, 17 : 10, 67 : 10})
+        result =detect_spikes(errors_by_hour)
+        assert len(result) == 0
+        assert result == []
