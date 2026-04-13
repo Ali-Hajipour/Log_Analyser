@@ -161,3 +161,5 @@ class TestAnalyseTopIps:
         result = analyse(iter(entries))
 
         assert len(result["top_ip_addresses"]) == 10
+
+class TestDetectSpikes :
