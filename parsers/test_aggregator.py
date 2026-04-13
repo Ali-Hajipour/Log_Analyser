@@ -155,3 +155,9 @@ class TestAnalyseTopIps:
         result =analyse(iter([make_entry(ip=None)]))
 
         assert len(result["top_ip_addresses"]) == 0
+
+    def test_top_ips_limited_to_ten(self):
+        entries = [make_entry(ip=f"192.168.1.{i}") for i in range (13)]
+        result = analyse(iter(entries))
+
+        assert len(result["top_ip_addresses"]) == 10
