@@ -150,3 +150,8 @@ class TestAnalyseTopIps:
        assert len(result["top_ip_addresses"]) == 2
        assert result["top_ip_addresses"][0] == ("192.168.1.1", 10)
        assert result["top_ip_addresses"][1] == ("192.168.2.2", 5)
+
+    def test_entry_without_ip_not_counted(self):
+        result =analyse(iter([make_entry(ip=None)]))
+
+        assert len(result["top_ip_addresses"]) == 0
