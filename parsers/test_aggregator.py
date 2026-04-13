@@ -163,3 +163,6 @@ class TestAnalyseTopIps:
         assert len(result["top_ip_addresses"]) == 10
 
 class TestDetectSpikes :
+    def test_fewer_than_3_hours_returns_empty(self):
+        errors_by_hour = Counter({17 : 100 , 11:2})
+        assert detect_spikes(errors_by_hour) == []
