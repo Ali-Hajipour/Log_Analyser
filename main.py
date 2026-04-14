@@ -30,3 +30,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     return parser
+
+def print_results(results : dict) -> None :
+    print("\n" + "=" * 50)
+    print("  LOG ANALYSER RESULTS")
+    print("=" * 50)
+
+    print(f"\n{'Total entries:':<25} {results['total']:,}")
+    print(f"{'Error count:':<25} {results['error_count']:,}")
+    print(f"{'Error rate:':<25} {results['error_rate'] * 100:.2f}%")
+
