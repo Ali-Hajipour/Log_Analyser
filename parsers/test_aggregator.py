@@ -172,3 +172,12 @@ class TestDetectSpikes :
         result =detect_spikes(errors_by_hour)
         assert len(result) == 0
         assert result == []
+
+    def test_spike_detected_when_hour_abnormally_high(self):
+        errors_by_hour = Counter({9: 5, 10: 4, 11: 6, 12: 5, 13: 4, 14: 100})
+        spikes = detect_spikes(errors_by_hour)
+        assert len(spikes) >= 1
+        assert spikes[0]["hour"] == 14
+
+
+
