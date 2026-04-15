@@ -63,6 +63,12 @@ def print_results(results : dict) -> None :
         else:
             print("No sources found.")
 
+    print("\n --- Top 10 IPs")
+    if results["top_ip_addresses"]:
+        for ip , count in results["top_ip_addresses"]:
+            print(f"  {ip:<20} {count:>6,}")
+    else:
+        print("No IPs found (not Apache logs).")
 
 
 
