@@ -40,3 +40,9 @@ def print_results(results : dict) -> None :
     print(f"{'Error count:':<25} {results['error_count']:,}")
     print(f"{'Error rate:':<25} {results['error_rate'] * 100:.2f}%")
 
+    print("\n ----level Breakdown----")
+    for level, count in sorted(results["level_counts"].items()):
+        bar = "█" * min(count // 10, 40)
+        print(f"  {level:<12} {count:>6,}  {bar}")
+
+
