@@ -56,4 +56,13 @@ def print_results(results : dict) -> None :
 
 
 
+    print("\n--- Top 10 Sources ---")
+    if results["top_sources"]:
+        for source , count in results["top_sources"]:
+            print(f"  {source:<30} {count:>6,}")
+        else:
+            print("No sources found.")
+
+
+
 
