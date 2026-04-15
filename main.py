@@ -45,4 +45,15 @@ def print_results(results : dict) -> None :
         bar = "█" * min(count // 10, 40)
         print(f"  {level:<12} {count:>6,}  {bar}")
 
+    print("\n --- Errors by hour ----")
+    if results["errors_by_hour"]:
+        for hour in sorted(results["errors_by_hour"]):
+            count = results["errors_by_hour"][hour]
+            bar = "█" * min(count, 40)
+            print(f"  {hour:02d}:00  {count:>5,}  {bar}")
+    else:
+        print("No errors found.")
+
+
+
 
