@@ -87,3 +87,7 @@ def print_results(results : dict) -> None :
         arg_parser = build_parser()
         args =arg_parser.parse_args()
 
+        if args.format not in PARSERS:
+            print(f"Unknown format {args.format}")
+            sys.exit(1)
+
