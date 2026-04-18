@@ -71,4 +71,12 @@ def print_results(results : dict) -> None :
         print("No IPs found (not Apache logs).")
 
 
+    print("/n ---Spike Alerts ---")
+    if results["spikes"]:
+        for spike in results["spikes"]:
+            print(f"  ⚠ Hour {spike['hour']:02d}:00 — "
+                  f"{spike['error_count']} errors "
+                  f"({spike['multiplier']}x above baseline of {spike['baseline']})")
+    else:
+        print("  No spikes detected.")
 
