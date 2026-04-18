@@ -1,0 +1,5 @@
+{"timestamp": "2024-01-15T10:23:45", "level": "INFO", "message": "Server started", "service": "api"}
+{"timestamp": "2024-01-15T10:23:46", "level": "ERROR", "message": "Disk full", "service": "api"}
+{"timestamp": "2024-01-15T10:23:47", "level": "WARN", "message": "High memory", "service": "nginx"}
+{"timestamp": "2024-01-15T10:24:00", "level": "ERROR", "message": "Connection refused", "service": "api"}
+{"timestamp": "2024-01-15T10:24:01", "level": "INFO", "message": "Request received", "service": "nginx"}

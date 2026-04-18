@@ -72,7 +72,7 @@ def print_results(results : dict) -> None :
         print("No IPs found (not Apache logs).")
 
 
-    print("/n ---Spike Alerts ---")
+    print("\n --- Spike Alerts ---")
     if results["spikes"]:
         for spike in results["spikes"]:
             print(f"  ⚠ Hour {spike['hour']:02d}:00 — "
@@ -92,7 +92,7 @@ def main():
             print(f"Unknown format {args.format}")
             sys.exit(1)
 
-        log_parser = PARSERS[args.format]
+        log_parser = PARSERS[args.format]()
         print(f"Parsing {args.file} as {args.format} format...")
 
         try:
@@ -102,7 +102,7 @@ def main():
             print(f"Error: file '{args.file}' not found.")
             sys.exit(1)
 
-        print(results)
+        print_results(results)
 
 if __name__ == "__main__":
         main()

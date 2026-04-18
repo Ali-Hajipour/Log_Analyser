@@ -1,6 +1,5 @@
 from abc import ABC , abstractmethod
 from dataclasses import dataclass, field
-from logging import exception
 from typing import Iterator
 from datetime import datetime
 
@@ -47,7 +46,7 @@ class BaseParser(ABC) :
                     enrty = self.parse_line(line)
                     if enrty is not None:
                         yield enrty
-                except exception:
+                except Exception:
                     failed +=1
 
         if failed :
@@ -55,13 +54,13 @@ class BaseParser(ABC) :
 
     def parse_string(self ,  text : str) -> Iterator[LogEntry]:
         for line in text.splitlines():
-            if not line.split():
+            if not line.strip():
                 continue
             try:
                 entry = self.parse_line(line)
                 if entry is not None:
                     yield entry
-            except exception:
+            except Exception:
                 pass
 
 
