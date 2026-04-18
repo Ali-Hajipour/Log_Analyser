@@ -3,6 +3,7 @@ import sys
 from parsers.json_parser import JSONParser
 from parsers.syslog_parser import SyslogParser
 from parsers.apache_parser import ApacheParser
+from analytics.aggregator import analyse
 
 
 PARSERS = {
@@ -83,7 +84,7 @@ def print_results(results : dict) -> None :
 
         print("\n" + "=" * 50 + "\n")
 
-    def main():
+def main():
         arg_parser = build_parser()
         args =arg_parser.parse_args()
 
@@ -93,3 +94,15 @@ def print_results(results : dict) -> None :
 
         log_parser = PARSERS[args.format]
         print(f"Parsing {args.file} as {args.format} format...")
+
+        try:
+            entries = log_parser.parse_file(args.file)
+            results = analyse(entries)
+        except FileNotFoundError:
+            print(f"Error: file '{args.file}' not found.")
+            sys.exit(1)
+
+        print(results)
+
+if __name__ == "__main__":
+        main()
