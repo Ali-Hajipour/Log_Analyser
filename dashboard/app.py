@@ -9,3 +9,10 @@ from parsers.json_parser import JSONParser
 from parsers.apache_parser import ApacheParser
 from parsers.syslog_parser import SyslogParser
 from analytics.aggregator import analyse
+
+
+PARSERS = {
+    "json":   JSONParser,
+    "apache": ApacheParser,
+    "syslog": SyslogParser,
+}
