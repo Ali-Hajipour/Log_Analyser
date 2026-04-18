@@ -16,3 +16,13 @@ PARSERS = {
     "apache": ApacheParser,
     "syslog": SyslogParser,
 }
+
+LEVEL_COLORS = {
+    "INFO":     "#4CAF50",
+    "WARN":     "#FF9800",
+    "WARNING":  "#FF9800",
+    "ERROR":    "#F44336",
+    "CRITICAL": "#9C27B0",
+    "DEBUG":    "#2196F3",
+    "UNKNOWN":  "#9E9E9E",
+}
