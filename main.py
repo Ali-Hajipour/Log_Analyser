@@ -91,3 +91,5 @@ def print_results(results : dict) -> None :
             print(f"Unknown format {args.format}")
             sys.exit(1)
 
+        log_parser = PARSERS[args.format]
+        print(f"Parsing {args.file} as {args.format} format...")
