@@ -80,3 +80,10 @@ def print_results(results : dict) -> None :
     else:
         print("  No spikes detected.")
 
+
+        print("\n" + "=" * 50 + "\n")
+
+    def main():
+        arg_parser = build_parser()
+        args =arg_parser.parse_args()
+
