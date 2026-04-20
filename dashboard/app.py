@@ -62,3 +62,14 @@ def render_level_chart(results : dict):
     df = (pd.DataFrame(list(results['level_counts'].items()) , columns=["Level" , "Count"])
           .sort_values("Count" , ascending= False))
     st.bar_chart(df.set_index("Level"))
+
+def render_errors_by_hours(results : dict):
+    st.subheader("Errors by Hour")
+    if not results["errors_by_hour"]:
+        st.info("No errors found.")
+        return
+    df = pd.DataFrame(
+        list(results["errors_by_hour"].items()),
+        columns=["Hour", "Errors"]).sort_values("Hour")
+    df["Hour"] = df["Hour"].apply(lambda h: f"{h:02d}:00")
+    st.line_chart(df.set_index("Hour"))
