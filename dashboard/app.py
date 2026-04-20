@@ -52,3 +52,13 @@ def render_metric_cards(results : dict) :
     with col4:
         st.metric("Unique Sources", len(results['top_sources']))
 
+
+
+def render_level_chart(results : dict):
+    st.subheader("Level Breakdown")
+    if not results['level_counts']:
+        print("No Level Data Available!")
+
+    df = (pd.DataFrame(list(results['level_counts'].items()) , columns=["Level" , "Count"])
+          .sort_values("Count" , ascending= False))
+    st.bar_chart(df.set_index("Level"))
