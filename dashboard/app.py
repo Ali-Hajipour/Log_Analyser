@@ -73,3 +73,13 @@ def render_errors_by_hours(results : dict):
         columns=["Hour", "Errors"]).sort_values("Hour")
     df["Hour"] = df["Hour"].apply(lambda h: f"{h:02d}:00")
     st.line_chart(df.set_index("Hour"))
+
+
+def render_top_sources(results: dict):
+    st.subheader("Top 10 Sources")
+    if not results["top_sources"]:
+        st.info("No Source Data Available.")
+        return
+    df = pd.DataFrame(results["top_sources"] ,  columns=["Source" , "Count"])
+    st.dataframe(df , use_container_width=True)
+
