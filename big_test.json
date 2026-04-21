@@ -1,0 +1,68 @@
+{"timestamp": "2024-01-15T08:00:01", "level": "INFO", "message": "Server started", "service": "api"}
+{"timestamp": "2024-01-15T08:00:02", "level": "INFO", "message": "Database connected", "service": "api"}
+{"timestamp": "2024-01-15T08:00:03", "level": "INFO", "message": "Cache warmed up", "service": "redis"}
+{"timestamp": "2024-01-15T08:00:04", "level": "DEBUG", "message": "Config loaded", "service": "api"}
+{"timestamp": "2024-01-15T08:00:05", "level": "INFO", "message": "Listening on port 8080", "service": "nginx"}
+{"timestamp": "2024-01-15T09:00:01", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T09:00:02", "level": "INFO", "message": "User login successful", "service": "auth"}
+{"timestamp": "2024-01-15T09:00:03", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T09:00:04", "level": "WARN", "message": "Slow query detected", "service": "api"}
+{"timestamp": "2024-01-15T09:00:05", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T09:00:06", "level": "INFO", "message": "User login successful", "service": "auth"}
+{"timestamp": "2024-01-15T09:00:07", "level": "DEBUG", "message": "Cache hit", "service": "redis"}
+{"timestamp": "2024-01-15T09:00:08", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T09:00:09", "level": "WARN", "message": "High memory usage 78%", "service": "api"}
+{"timestamp": "2024-01-15T09:00:10", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T10:00:01", "level": "ERROR", "message": "Disk full on /dev/sda1", "service": "api"}
+{"timestamp": "2024-01-15T10:00:02", "level": "ERROR", "message": "Connection refused to database", "service": "api"}
+{"timestamp": "2024-01-15T10:00:03", "level": "ERROR", "message": "Request timeout after 30s", "service": "nginx"}
+{"timestamp": "2024-01-15T10:00:04", "level": "ERROR", "message": "Memory allocation failed", "service": "api"}
+{"timestamp": "2024-01-15T10:00:05", "level": "ERROR", "message": "Unhandled exception in worker", "service": "api"}
+{"timestamp": "2024-01-15T10:00:06", "level": "CRITICAL", "message": "Database connection pool exhausted", "service": "api"}
+{"timestamp": "2024-01-15T10:00:07", "level": "ERROR", "message": "Failed to write to disk", "service": "api"}
+{"timestamp": "2024-01-15T10:00:08", "level": "ERROR", "message": "Worker process crashed", "service": "nginx"}
+{"timestamp": "2024-01-15T10:00:09", "level": "ERROR", "message": "Queue overflow detected", "service": "redis"}
+{"timestamp": "2024-01-15T10:00:10", "level": "ERROR", "message": "SSL certificate expired", "service": "nginx"}
+{"timestamp": "2024-01-15T10:00:11", "level": "ERROR", "message": "Authentication service unreachable", "service": "auth"}
+{"timestamp": "2024-01-15T10:00:12", "level": "CRITICAL", "message": "System out of memory", "service": "api"}
+{"timestamp": "2024-01-15T10:00:13", "level": "ERROR", "message": "Backup job failed", "service": "api"}
+{"timestamp": "2024-01-15T10:00:14", "level": "ERROR", "message": "Load balancer timeout", "service": "nginx"}
+{"timestamp": "2024-01-15T10:00:15", "level": "ERROR", "message": "API rate limit exceeded", "service": "api"}
+{"timestamp": "2024-01-15T11:00:01", "level": "WARN", "message": "High CPU usage 91%", "service": "api"}
+{"timestamp": "2024-01-15T11:00:02", "level": "INFO", "message": "Service recovering", "service": "api"}
+{"timestamp": "2024-01-15T11:00:03", "level": "WARN", "message": "Retrying database connection", "service": "api"}
+{"timestamp": "2024-01-15T11:00:04", "level": "INFO", "message": "Database reconnected", "service": "api"}
+{"timestamp": "2024-01-15T11:00:05", "level": "WARN", "message": "Cache invalidated", "service": "redis"}
+{"timestamp": "2024-01-15T11:00:06", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T11:00:07", "level": "ERROR", "message": "Disk usage at 95%", "service": "api"}
+{"timestamp": "2024-01-15T11:00:08", "level": "INFO", "message": "User login successful", "service": "auth"}
+{"timestamp": "2024-01-15T11:00:09", "level": "WARN", "message": "Slow response time 2400ms", "service": "nginx"}
+{"timestamp": "2024-01-15T11:00:10", "level": "INFO", "message": "Cleanup job completed", "service": "api"}
+{"timestamp": "2024-01-15T12:00:01", "level": "INFO", "message": "All systems normal", "service": "api"}
+{"timestamp": "2024-01-15T12:00:02", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T12:00:03", "level": "INFO", "message": "User login successful", "service": "auth"}
+{"timestamp": "2024-01-15T12:00:04", "level": "DEBUG", "message": "Health check passed", "service": "api"}
+{"timestamp": "2024-01-15T12:00:05", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T12:00:06", "level": "INFO", "message": "Scheduled backup started", "service": "api"}
+{"timestamp": "2024-01-15T12:00:07", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T12:00:08", "level": "WARN", "message": "Backup taking longer than expected", "service": "api"}
+{"timestamp": "2024-01-15T12:00:09", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T12:00:10", "level": "INFO", "message": "Backup completed successfully", "service": "api"}
+{"timestamp": "2024-01-15T13:00:01", "level": "INFO", "message": "Request received", "service": "nginx", "request_id": "abc123"}
+{"timestamp": "2024-01-15T13:00:02", "level": "INFO", "message": "User login successful", "service": "auth", "user": "admin"}
+{"timestamp": "2024-01-15T13:00:03", "level": "INFO", "message": "Request received", "service": "nginx", "request_id": "def456"}
+{"timestamp": "2024-01-15T13:00:04", "level": "INFO", "message": "Request received", "service": "nginx", "request_id": "ghi789"}
+{"timestamp": "2024-01-15T13:00:05", "level": "DEBUG", "message": "Cache miss", "service": "redis"}
+{"timestamp": "2024-01-15T14:00:01", "level": "INFO", "message": "Deployment started", "service": "api", "version": "2.1.0"}
+{"timestamp": "2024-01-15T14:00:02", "level": "INFO", "message": "Old version stopped", "service": "api"}
+{"timestamp": "2024-01-15T14:00:03", "level": "WARN", "message": "Health check failing during deploy", "service": "nginx"}
+{"timestamp": "2024-01-15T14:00:04", "level": "ERROR", "message": "New version failed to start", "service": "api"}
+{"timestamp": "2024-01-15T14:00:05", "level": "ERROR", "message": "Rollback initiated", "service": "api"}
+{"timestamp": "2024-01-15T14:00:06", "level": "WARN", "message": "Rolling back to version 2.0.9", "service": "api"}
+{"timestamp": "2024-01-15T14:00:07", "level": "INFO", "message": "Rollback completed", "service": "api"}
+{"timestamp": "2024-01-15T14:00:08", "level": "INFO", "message": "Service restored", "service": "nginx"}
+{"timestamp": "2024-01-15T15:00:01", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T15:00:02", "level": "INFO", "message": "User login successful", "service": "auth"}
+{"timestamp": "2024-01-15T15:00:03", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T15:00:04", "level": "INFO", "message": "Request received", "service": "nginx"}
+{"timestamp": "2024-01-15T15:00:05", "level": "INFO", "message": "Scheduled task completed", "service": "api"}
