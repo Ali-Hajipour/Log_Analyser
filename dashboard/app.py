@@ -87,5 +87,17 @@ def render_top_ips(results : dict):
     st.subheader("Top 10 IP Addresses")
     if not results["top_ip_addresses"] :
         st.info("No Ips Available. - only For Apache Logs")
+        return
     df = pd.DataFrame(results["top_ip_addresses"] , columns=["IP" , "Count"])
     st.dataframe(df, use_container_width=True)
+
+def render_spikes(results:dict):
+    if not results["spikes"]:
+        st.info("No Spikes Available.")
+        return
+    for spike in results["spikes"]:
+        st.warning(
+            f"⚠ Hour {spike['hour']:02d}:00 — "
+            f"**{spike['error_count']} errors** "
+            f"({spike['multiplier']}x above baseline of {spike['baseline']})"
+        )
