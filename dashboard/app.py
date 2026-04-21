@@ -83,3 +83,9 @@ def render_top_sources(results: dict):
     df = pd.DataFrame(results["top_sources"] ,  columns=["Source" , "Count"])
     st.dataframe(df , use_container_width=True)
 
+def render_top_ips(results : dict):
+    st.subheader("Top 10 IP Addresses")
+    if not results["top_ip_addresses"] :
+        st.info("No Ips Available. - only For Apache Logs")
+    df = pd.DataFrame(results["top_ip_addresses"] , columns=["IP" , "Count"])
+    st.dataframe(df, use_container_width=True)
