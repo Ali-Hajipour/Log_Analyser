@@ -101,3 +101,10 @@ def render_spikes(results:dict):
             f"**{spike['error_count']} errors** "
             f"({spike['multiplier']}x above baseline of {spike['baseline']})"
         )
+
+def main():
+    st.set_page_config(
+        page_title= "Log Analyser",
+        page_icon="🔍",
+        layout="wide"
+    )
