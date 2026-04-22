@@ -3,6 +3,8 @@ import pandas as pd
 import sys
 import os
 
+from streamlit import divider
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from parsers.json_parser import JSONParser
@@ -136,6 +138,10 @@ def main():
     if results["total"] == 0:
         st.warning("No entries could be parsed. Check that the format matches your file.")
         return
+
+    divider()
+    render_metric_cards(results)
+
 
 
 
