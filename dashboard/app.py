@@ -126,6 +126,14 @@ def main():
             st.info("👆 Upload a log file above to get started.")
             return
 
+        with st.spinner(f"Parsing {uploaded_file.name} as {fmt} format..."):
+            try:
+                results = run_analysis(uploaded_file, fmt)
+            except Exception as e:
+                st.error(f"Failed to parse file: {e}")
+                return
+
+
 
 
 
