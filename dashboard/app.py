@@ -133,6 +133,10 @@ def main():
                 st.error(f"Failed to parse file: {e}")
                 return
 
+    if results["total"] == 0:
+        st.warning("No entries could be parsed. Check that the format matches your file.")
+        return
+
 
 
 
