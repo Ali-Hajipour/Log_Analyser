@@ -108,3 +108,15 @@ def main():
         page_icon="🔍",
         layout="wide"
     )
+
+    st.title("Log Analyser | Developed by Ali Hajipour")
+    st.caption("Add Json, Syslog, and Apache logs to be analysed.")
+    st.divider()
+
+
+
+
+
+
+if __name__ == '__main__':
+    main()
