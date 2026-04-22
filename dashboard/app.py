@@ -113,6 +113,15 @@ def main():
     st.caption("Add Json, Syslog, and Apache logs to be analysed.")
     st.divider()
 
+    col1 , col2 = st.columns([3 ,1])
+
+    with col1:
+        uploaded_file = st.file_uploader("Upload your Log file :",
+                                         type=["log", "json", "txt"],
+                                         help="Select the format which your log's format is.")
+
+
+
 
 
 
