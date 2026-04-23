@@ -154,6 +154,8 @@ def main():
     col_left2, col_right2 = st.columns(2)
     with col_left2:
         render_top_sources(results)
+    with col_right2 :
+        render_top_ips(results)
 
 
 
