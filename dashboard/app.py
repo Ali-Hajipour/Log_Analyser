@@ -150,7 +150,10 @@ def main():
     with col_right:
         render_errors_by_hours(results)
 
-
+    st.divider()
+    col_left2, col_right2 = st.columns(2)
+    with col_left2:
+        render_top_sources(results)
 
 
 
