@@ -45,9 +45,9 @@ def render_metric_cards(results : dict) :
     col1 ,col2 , col3 , col4  = st.columns(4)
 
     with col1:
-        st.metric("Total", f"{results['total']:;}")
+        st.metric("Total", f"{results['total']:,}")
     with col2 :
-        st.metric("Error Count" , f"{results['error_count']:;}")
+        st.metric("Error Count" , f"{results['error_count']:,}")
     with col3:
         rate = results['error_rate'] * 100
         st.metric("Error Rate", f"{rate:.2f}%")
