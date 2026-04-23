@@ -145,7 +145,14 @@ def main():
     st.divider()
 
     col_left , col_right = st.columns(2)
-    render_level_chart(results)
+    with col_left :
+       render_level_chart(results)
+    with col_right:
+        render_errors_by_hours(results)
+
+
+
+
 
 
 
