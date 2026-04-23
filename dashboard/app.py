@@ -157,6 +157,9 @@ def main():
     with col_right2 :
         render_top_ips(results)
 
+    st.divider()
+    render_spikes(results)
+
 
 
 
