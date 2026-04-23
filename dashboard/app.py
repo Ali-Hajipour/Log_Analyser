@@ -142,6 +142,11 @@ def main():
     divider()
     render_metric_cards(results)
 
+    st.divider()
+
+    col_left , col_right = st.columns(2)
+    render_level_chart(results)
+
 
 
 
