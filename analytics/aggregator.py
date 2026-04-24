@@ -18,7 +18,7 @@ def analyse(entries : Iterator[LogEntry]) -> dict :
         level = entry.level or "UNKNOWN"
         level_count[level] += 1
 
-        if level in(["ERROR" , "CRITICAL"]):
+        if level in(["ERROR" , "CRITICAL", "WARN"]):
             error_count += 1
             if entry.timestamp:
                 errors_by_hour[entry.timestamp.hour] += 1
