@@ -52,7 +52,7 @@ def detect_spikes (errors_by_hour :Counter ) ->list:
 
     baseline = mean(numbers)
     deviation = stdev(numbers)
-    threshold = baseline + (2 * deviation)
+    threshold = baseline + (1 * deviation)
 
     spikes =[]
 
