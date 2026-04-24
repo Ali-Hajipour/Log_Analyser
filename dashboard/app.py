@@ -32,7 +32,7 @@ LEVEL_COLORS = {
 
 def run_analysis(uploaded_file , file_extension : str) -> dict:
     import tempfile
-    with tempfile.NamedTemporaryFile(delete=False , suffix=f"{file_extension}") as temp :
+    with tempfile.NamedTemporaryFile(delete=False , suffix=f".{file_extension}") as temp :
         temp.write(uploaded_file.read())
         temp_path = temp.name
         parser = PARSERS[file_extension]()
