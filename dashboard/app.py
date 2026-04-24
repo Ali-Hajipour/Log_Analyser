@@ -6,7 +6,7 @@ import plotly.express as px
 
 from streamlit import divider
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from parsers.json_parser import JSONParser
 from parsers.apache_parser import ApacheParser
