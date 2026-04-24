@@ -64,7 +64,19 @@ def render_level_chart(results : dict):
 
     df = (pd.DataFrame(list(results['level_counts'].items()) , columns=["Level" , "Count"])
           .sort_values("Count" , ascending= False))
-    st.bar_chart(df.set_index("Level"))
+
+    figure = px.bar(
+        df,
+        x="Level",
+        y="Count",
+        color="Level",
+        color_discrete_map= LEVEL_COLORS,
+        text= "Count"
+
+    )
+
+    st.plotly_chart(figure, use_container_width=True)
+
 
 def render_errors_by_hours(results : dict):
     st.subheader("Errors by Hour")
