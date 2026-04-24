@@ -123,7 +123,7 @@ def main():
                                          help="Select the format which your log's format is.")
 
     with col2:
-        fmt = st.selectbox("Log Format", options=["json", "syslog" , "Apache"])
+        fmt = st.selectbox("Log Format", options=["json", "syslog" , "apache"])
         if uploaded_file is None:
             st.info("👆 Upload a log file above to get started.")
             return
